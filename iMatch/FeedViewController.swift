@@ -7,12 +7,14 @@
 
 import UIKit
 
-var feedArray = ["Room For Rent","Studio for sale in Elmhurst","Free Sofa"];
-var feedArrayDetails = [
+var feedTitle = ["Room For Rent","Studio for sale in Elmhurst","Looking for SE Job"];
+var feedSubtitle = [
     "1 bedroom in 3 bedroom apt is available in Elmhurst\nPlease Call 347-933-2366",
-    "Large Bedroom Alcove Area. Very Low Maintenance.\nExtremely Convenient Location",
-    "First come first save.\nPick up by today at 42-54 81st street apt 4"
+    "Large Bedroom Alcove Area.\nVery Low Maintenance.\nExtremely Convenient Location",
+    "Recent college Graduates\nLooking for Software Engineering Jobs\nPlease call me at ###-###-####"
 ];
+
+var feedImage = ["room.jpg","condo.jpg","iwan.jpg"];
 
 
 class FeedViewController: UITableViewController{
@@ -32,17 +34,33 @@ class FeedViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return feedArray.count
+        return feedTitle.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FeedTableViewCell
         
-        cell.feedImage.image = UIImage(named: "hamster.jpg");
-        cell.feedTitle.text = feedArray[indexPath.row];
-        cell.feedSubTitle.text = feedArrayDetails[indexPath.row];
+        cell.feedImage.image = UIImage(named: feedImage[indexPath.row])
+        cell.feedTitle.text = feedTitle[indexPath.row];
+        cell.feedSubTitle.text = feedSubtitle[indexPath.row];
     
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "segueFeedDetails"{
+            
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                
+                let destination = segue.destination as! feedCellDetailsViewController
+                destination.image = UIImage(named: feedImage[indexPath.row])
+                destination.feedTitleDetails = feedTitle[indexPath.row]
+                
+            }
+            
+        }
+        
     }
     
 
