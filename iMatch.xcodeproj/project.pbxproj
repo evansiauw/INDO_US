@@ -12,6 +12,8 @@
 		0151FB1C212F9A9D0037CB3A /* condo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0151FB1B212F9A9D0037CB3A /* condo.jpg */; };
 		0151FB1E212FA0E20037CB3A /* room.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0151FB1D212FA0E20037CB3A /* room.jpg */; };
 		0151FB20212FA95C0037CB3A /* indoWallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = 0151FB1F212FA95C0037CB3A /* indoWallpaper.png */; };
+		0151FB2421386EF80037CB3A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0151FB2321386EF80037CB3A /* GoogleService-Info.plist */; };
+		0151FB26213895A90037CB3A /* signUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0151FB25213895A90037CB3A /* signUpViewController.swift */; };
 		01645F1D211E43880076E466 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01645F1C211E43880076E466 /* AppDelegate.swift */; };
 		01645F1F211E43880076E466 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01645F1E211E43880076E466 /* ViewController.swift */; };
 		01645F22211E43880076E466 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01645F20211E43880076E466 /* Main.storyboard */; };
@@ -53,6 +55,8 @@
 		0151FB1B212F9A9D0037CB3A /* condo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = condo.jpg; sourceTree = "<group>"; };
 		0151FB1D212FA0E20037CB3A /* room.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = room.jpg; sourceTree = "<group>"; };
 		0151FB1F212FA95C0037CB3A /* indoWallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = indoWallpaper.png; sourceTree = "<group>"; };
+		0151FB2321386EF80037CB3A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		0151FB25213895A90037CB3A /* signUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpViewController.swift; sourceTree = "<group>"; };
 		01645F19211E43880076E466 /* iMatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01645F1C211E43880076E466 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01645F1E211E43880076E466 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -140,9 +144,11 @@
 				01645F1C211E43880076E466 /* AppDelegate.swift */,
 				01645F1E211E43880076E466 /* ViewController.swift */,
 				01645F20211E43880076E466 /* Main.storyboard */,
+				0151FB25213895A90037CB3A /* signUpViewController.swift */,
 				01CC0594212A3DE7006C508F /* FeedTableViewCell.swift */,
 				01645F23211E438A0076E466 /* Assets.xcassets */,
 				01645F25211E438A0076E466 /* LaunchScreen.storyboard */,
+				0151FB2321386EF80037CB3A /* GoogleService-Info.plist */,
 				01645F28211E438A0076E466 /* Info.plist */,
 			);
 			path = iMatch;
@@ -319,6 +325,7 @@
 				0151FB1C212F9A9D0037CB3A /* condo.jpg in Resources */,
 				01CC05A0212B7758006C508F /* hamster.jpg in Resources */,
 				01CC059E212B7757006C508F /* icons8-back-to-96.png in Resources */,
+				0151FB2421386EF80037CB3A /* GoogleService-Info.plist in Resources */,
 				01645F22211E43880076E466 /* Main.storyboard in Resources */,
 				0151FB1A212F98910037CB3A /* iwan.jpg in Resources */,
 			);
@@ -384,13 +391,21 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-iMatch/Pods-iMatch-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -424,6 +439,7 @@
 			files = (
 				01645F1F211E43880076E466 /* ViewController.swift in Sources */,
 				0151FB18212F7FD90037CB3A /* feedCellDetailsViewController.swift in Sources */,
+				0151FB26213895A90037CB3A /* signUpViewController.swift in Sources */,
 				01CC0595212A3DE7006C508F /* FeedTableViewCell.swift in Sources */,
 				01CC05A6212B9146006C508F /* FeedViewController.swift in Sources */,
 				01645F1D211E43880076E466 /* AppDelegate.swift in Sources */,

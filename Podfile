@@ -7,6 +7,10 @@ target 'iMatch' do
 
   # Pods for iMatch
 pod'RealmSwift'
+pod 'Firebase'
+pod 'Firebase/Core'
+pod 'Firebase/Database'
+pod 'Firebase/Auth'
 
   target 'iMatchTests' do
     inherit! :search_paths
