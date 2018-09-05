@@ -14,6 +14,8 @@
 		0151FB20212FA95C0037CB3A /* indoWallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = 0151FB1F212FA95C0037CB3A /* indoWallpaper.png */; };
 		0151FB2421386EF80037CB3A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0151FB2321386EF80037CB3A /* GoogleService-Info.plist */; };
 		0151FB26213895A90037CB3A /* signUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0151FB25213895A90037CB3A /* signUpViewController.swift */; };
+		0151FB28213C187B0037CB3A /* liveChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0151FB27213C187B0037CB3A /* liveChatViewController.swift */; };
+		0151FB2A213F226E0037CB3A /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0151FB29213F226E0037CB3A /* profileViewController.swift */; };
 		01645F1D211E43880076E466 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01645F1C211E43880076E466 /* AppDelegate.swift */; };
 		01645F1F211E43880076E466 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01645F1E211E43880076E466 /* ViewController.swift */; };
 		01645F22211E43880076E466 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01645F20211E43880076E466 /* Main.storyboard */; };
@@ -57,6 +59,8 @@
 		0151FB1F212FA95C0037CB3A /* indoWallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = indoWallpaper.png; sourceTree = "<group>"; };
 		0151FB2321386EF80037CB3A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0151FB25213895A90037CB3A /* signUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpViewController.swift; sourceTree = "<group>"; };
+		0151FB27213C187B0037CB3A /* liveChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = liveChatViewController.swift; sourceTree = "<group>"; };
+		0151FB29213F226E0037CB3A /* profileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
 		01645F19211E43880076E466 /* iMatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01645F1C211E43880076E466 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01645F1E211E43880076E466 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 				01645F1C211E43880076E466 /* AppDelegate.swift */,
 				01645F1E211E43880076E466 /* ViewController.swift */,
 				01645F20211E43880076E466 /* Main.storyboard */,
+				0151FB27213C187B0037CB3A /* liveChatViewController.swift */,
+				0151FB29213F226E0037CB3A /* profileViewController.swift */,
 				0151FB25213895A90037CB3A /* signUpViewController.swift */,
 				01CC0594212A3DE7006C508F /* FeedTableViewCell.swift */,
 				01645F23211E438A0076E466 /* Assets.xcassets */,
@@ -441,7 +447,9 @@
 				0151FB18212F7FD90037CB3A /* feedCellDetailsViewController.swift in Sources */,
 				0151FB26213895A90037CB3A /* signUpViewController.swift in Sources */,
 				01CC0595212A3DE7006C508F /* FeedTableViewCell.swift in Sources */,
+				0151FB28213C187B0037CB3A /* liveChatViewController.swift in Sources */,
 				01CC05A6212B9146006C508F /* FeedViewController.swift in Sources */,
+				0151FB2A213F226E0037CB3A /* profileViewController.swift in Sources */,
 				01645F1D211E43880076E466 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
