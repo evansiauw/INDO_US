@@ -10,7 +10,6 @@ import UIKit
 
 class FeedTableViewCell: UITableViewCell {
 
-    
     @IBOutlet weak var feedImage: UIImageView!
     @IBOutlet weak var feedTitle: UILabel!
     @IBOutlet weak var feedSubTitle: UILabel!

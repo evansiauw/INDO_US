@@ -10,19 +10,19 @@ import UIKit
 
 class feedCellDetailsViewController: UIViewController {
 
-    @IBOutlet weak var navBar: UINavigationBar!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         imageView.image = image
-        navBar.topItem?.title = feedTitleDetails
+        navItem.title = feedTitleDetails
+
     }
     
     var image: UIImage!
-    var feedTitleDetails: String?
+    var feedTitleDetails: String = "Title"
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var navItem: UINavigationItem!
     
 
 }
