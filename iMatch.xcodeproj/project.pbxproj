@@ -54,7 +54,7 @@
 		0151FB29213F226E0037CB3A /* profileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
 		0151FB2F2140C9DC0037CB3A /* feedCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = feedCreationViewController.swift; sourceTree = "<group>"; };
 		0151FB342142195E0037CB3A /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
-		01645F19211E43880076E466 /* iMatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		01645F19211E43880076E466 /* Indo-US.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Indo-US.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		01645F1C211E43880076E466 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01645F1E211E43880076E466 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		01645F21211E43880076E466 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 		01645F1A211E43880076E466 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				01645F19211E43880076E466 /* iMatch.app */,
+				01645F19211E43880076E466 /* Indo-US.app */,
 				01645F2D211E438A0076E466 /* iMatchTests.xctest */,
 				01645F38211E438A0076E466 /* iMatchUITests.xctest */,
 			);
@@ -219,7 +219,7 @@
 			);
 			name = iMatch;
 			productName = iMatch;
-			productReference = 01645F19211E43880076E466 /* iMatch.app */;
+			productReference = 01645F19211E43880076E466 /* Indo-US.app */;
 			productType = "com.apple.product-type.application";
 		};
 		01645F2C211E438A0076E466 /* iMatchTests */ = {
@@ -613,7 +613,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "evans-company.iMatch";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Indo-US";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -633,7 +633,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "evans-company.iMatch";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Indo-US";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

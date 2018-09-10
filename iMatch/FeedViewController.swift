@@ -13,12 +13,6 @@ class FeedViewController: UITableViewController{
     
     var feeds = [Feed]()
     
-    var feedTitle = ["Room For Rent","Studio for sale in Elmhurst","Looking for SE Job"];
-    var feedSubtitle = [
-        "1 bedroom in 3 bedroom apt is available in Elmhurst\nPlease Call 347-933-2366",
-        "Large Bedroom Alcove Area.\nVery Low Maintenance.\nExtremely Convenient Location",
-        "Recent college Graduates\nLooking for Software Engineering Jobs\nPlease call me at ###-###-####"];
-    
     var feedImage = ["room.jpg","condo.jpg","iwan.jpg"];
     
     override func viewDidLoad() {
@@ -44,7 +38,6 @@ class FeedViewController: UITableViewController{
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
-                print("Feeds Added \(dictionary)")
 
             }
             
@@ -120,7 +113,7 @@ class FeedViewController: UITableViewController{
                 
                 let destination = segue.destination as! feedCellDetailsViewController
                 destination.image = UIImage(named: feedImage[indexPath.row % 3])
-                destination.feedTitleDetails = feedTitle[indexPath.row]
+                //destination.feedTitleDetails = feedTitle[indexPath.row]
                 
             }
             

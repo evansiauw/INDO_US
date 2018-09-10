@@ -67,8 +67,11 @@ class signUpViewController: UIViewController, UITextFieldDelegate {
         
         let controller = UIAlertController(title: "Attention", message: Message, preferredStyle: .alert)
         
-        let action = UIAlertAction(title:"Dismiss", style: .default, handler: {(paramAction:UIAlertAction!)
-            in print("Di Bilang Jangan Di pencet!!!")})
+        /*let action = UIAlertAction(title:"Dismiss", style: .default, handler: {(paramAction:UIAlertAction!)
+            in print("Di Bilang Jangan Di pencet!!!")}) */
+        
+        let action = UIAlertAction(title:"Dismiss", style: .default, handler: nil)
+        
         
         controller.addAction(action)
         self.present(controller, animated: true, completion: nil)
