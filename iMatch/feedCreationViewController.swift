@@ -17,23 +17,30 @@ class feedCreationViewController: UIViewController, UIImagePickerControllerDeleg
     @IBOutlet weak var newFeedDetails: UITextView!
     @IBOutlet weak var imagePicker: UIButton!
 
-    var imageURL: String?
+    var imageLocalURL: URL?
     
     @IBAction func feedSubmission(_ sender: UIButton) {
         
-        //let userUID = Auth.auth().currentUser?.uid
-        //print("user id is \(userUID!)")
+        let imageName = UUID().uuidString
+        let storageRef = Storage.storage().reference().child("feedPhotos/\(imageName)")
         
-        let values = ["title": newFeedTitle.text!, "details": newFeedDetails.text!, "image": imageURL!]
-        Database.database().reference().child("Feeds").childByAutoId().updateChildValues(values, withCompletionBlock: { (err,ref) in
-            
-            if err != nil {
-                print (err as Any)
+        storageRef.putFile(from: imageLocalURL!, metadata: nil) { (metadata, error) in
+            guard let metadata = metadata else {
                 return
             }
+            print(metadata)
             
-        })
-
+            storageRef.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                    return
+                }
+                let values = ["title": self.newFeedTitle.text!, "details": self.newFeedDetails.text!, "image": downloadURL.absoluteString] as [String : Any]
+                
+                self.uploadToCloud(values: values)
+                
+            }
+        }
+     
         performSegue(withIdentifier: "feedCreationToMainMenu", sender: self)
     }
     
@@ -46,49 +53,37 @@ class feedCreationViewController: UIViewController, UIImagePickerControllerDeleg
         
     }
     
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         var selectedImageFromImagePicker: UIImage?
         
         if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
-            selectedImageFromImagePicker = editedImage
+            selectedImageFromImagePicker = editedImage.compressImage()
         } else if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
-            selectedImageFromImagePicker = originalImage
+            selectedImageFromImagePicker = originalImage.compressImage()
         }
         
         if let selectedImage = selectedImageFromImagePicker {
             imagePicker.setImage(selectedImage, for: .normal)
         }
         
-        let imageName = UUID().uuidString
-        let imageURL = info[UIImagePickerControllerImageURL] as! URL
-        let storageRef = Storage.storage().reference().child("feedPhotos/\(imageName)")
-
-        storageRef.putFile(from: imageURL, metadata: nil) { (metadata, error) in
-            guard let metadata = metadata else {
-                // Uh-oh, an error occurred!
-                return
-            }
-        
-            /*storageRef.downloadURL { (url, error) in
-                guard let downloadURL = url else {
-                    // Uh-oh, an error occurred!
-                    return
-                }
-                print("url in firebase is \(downloadURL)")
-            } */
-            
-        }
-        
+        imageLocalURL = info[UIImagePickerControllerImageURL] as? URL
+       
         dismiss(animated: true, completion: nil)
     }
     
-    func uploadImageToCloud(){
+    func uploadToCloud(values: [String:Any]){
         
-        
-    }
+        Database.database().reference().child("Feeds").childByAutoId().updateChildValues(values, withCompletionBlock: { (err,ref) in
+            
+            if err != nil {
+                print (err as Any)
+                return
+            }
+            
+        })
     
+    }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
@@ -110,6 +105,8 @@ class feedCreationViewController: UIViewController, UIImagePickerControllerDeleg
         view.endEditing(true)
     }
     
+    
+    
     /*func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -121,6 +118,52 @@ class feedCreationViewController: UIViewController, UIImagePickerControllerDeleg
     func textFieldDidEndEditing(_ textField: UITextField) {
         scrollView.setContentOffset(CGPoint(x:0,y:0), animated: true)
     } */
+    
+    //let userUID = Auth.auth().currentUser?.uid
+    //print("user id is \(userUID!)")
 
+}
 
+extension UIImage {
+    
+    func compressImage() -> UIImage? {
+        // Reducing file size to a 10th
+        var actualHeight: CGFloat = self.size.height
+        var actualWidth: CGFloat = self.size.width
+        let maxHeight: CGFloat = 1136.0
+        let maxWidth: CGFloat = 640.0
+        var imgRatio: CGFloat = actualWidth/actualHeight
+        let maxRatio: CGFloat = maxWidth/maxHeight
+        var compressionQuality: CGFloat = 0.5
+        
+        if actualHeight > maxHeight || actualWidth > maxWidth {
+            if imgRatio < maxRatio {
+                //adjust width according to maxHeight
+                imgRatio = maxHeight / actualHeight
+                actualWidth = imgRatio * actualWidth
+                actualHeight = maxHeight
+            } else if imgRatio > maxRatio {
+                //adjust height according to maxWidth
+                imgRatio = maxWidth / actualWidth
+                actualHeight = imgRatio * actualHeight
+                actualWidth = maxWidth
+            } else {
+                actualHeight = maxHeight
+                actualWidth = maxWidth
+                compressionQuality = 1
+            }
+        }
+        let rect = CGRect(x: 0.0, y: 0.0, width: actualWidth, height: actualHeight)
+        UIGraphicsBeginImageContext(rect.size)
+        self.draw(in: rect)
+        guard let img = UIGraphicsGetImageFromCurrentImageContext() else {
+            return nil
+        }
+        UIGraphicsEndImageContext()
+        guard let imageData = UIImageJPEGRepresentation(img, compressionQuality) else {
+            return nil
+        }
+        return UIImage(data: imageData)
+    }
+    
 }

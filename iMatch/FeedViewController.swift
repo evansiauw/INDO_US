@@ -8,13 +8,12 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
+import FirebaseStorage
 
 class FeedViewController: UITableViewController{
     
     var feeds = [Feed]()
-    
-    var feedImage = ["room.jpg","condo.jpg","iwan.jpg"];
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,6 +24,8 @@ class FeedViewController: UITableViewController{
         fetchFeed()
         
     }
+    
+    
     
     func fetchFeed() {
         
@@ -43,6 +44,10 @@ class FeedViewController: UITableViewController{
             
         }, withCancel: nil)
         
+        
+        
+        
+        
         // Not finished yet -- removing cell by index when cell is removed
         /*Database.database().reference().child("Feeds").observe(.childRemoved, with: { (snapshot) in
             
@@ -57,13 +62,6 @@ class FeedViewController: UITableViewController{
             
     }, withCancel: nil)
          */
-        
- 
-        
-    }
-    
-    @IBAction func refreshTable(_ sender: Any) {
-        
         
     }
     
@@ -97,8 +95,19 @@ class FeedViewController: UITableViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FeedTableViewCell
         
         let value = feeds[indexPath.row]
+        let imageRef = value.image
+        let httpRef = Storage.storage().reference(forURL: imageRef!)
         
-        cell.feedImage.image = UIImage(named: feedImage[indexPath.row % 3])
+        httpRef.getData(maxSize: 5 * 1024 * 1024, completion: { data, error in
+            if let error = error {
+                print(error)
+            } else {
+                
+                value.realImage = UIImage(data: data!)
+                cell.feedImage.image = value.realImage
+            }
+        })
+        
         cell.feedTitle.text = value.title
         cell.feedSubTitle.text = value.details
     
@@ -111,9 +120,13 @@ class FeedViewController: UITableViewController{
             
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 
+                let value = feeds[indexPath.row]
+                
                 let destination = segue.destination as! feedCellDetailsViewController
-                destination.image = UIImage(named: feedImage[indexPath.row % 3])
-                //destination.feedTitleDetails = feedTitle[indexPath.row]
+                
+                destination.image = value.realImage
+                destination.feedTitleDetails = value.title
+                destination.feedDetail = value.details
                 
             }
             

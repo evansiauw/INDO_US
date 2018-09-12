@@ -15,12 +15,16 @@ class feedCellDetailsViewController: UIViewController {
         
         imageView.image = image
         navItem.title = feedTitleDetails
+        feedDetails.text = feedDetail
 
     }
     
     var image: UIImage!
-    var feedTitleDetails: String = "Title"
+    var feedTitleDetails: String?
+    var feedDetail: String?
+    var feedTitle: String?
     
+    @IBOutlet weak var feedDetails: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var navItem: UINavigationItem!
     

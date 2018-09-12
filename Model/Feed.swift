@@ -11,4 +11,6 @@ import UIKit
 @objcMembers class Feed: NSObject {
     var details: String?
     var title: String?
+    var image: String?
+    var realImage: UIImage?
 }
