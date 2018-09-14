@@ -23,6 +23,13 @@ class FeedViewController: UITableViewController{
         
         fetchFeed()
         
+        let attrs = [
+            NSAttributedStringKey.foregroundColor: UIColor.blue,
+            NSAttributedStringKey.font: UIFont(name: "PartyLetPlain", size: 30)!
+        ]
+        
+        UINavigationBar.appearance().titleTextAttributes = attrs
+        
     }
     
     

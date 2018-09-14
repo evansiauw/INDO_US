@@ -22,25 +22,27 @@ class feedCreationViewController: UIViewController, UIImagePickerControllerDeleg
     @IBAction func feedSubmission(_ sender: UIButton) {
         
         let imageName = UUID().uuidString
-        let storageRef = Storage.storage().reference().child("feedPhotos/\(imageName)")
+        let storageRef = Storage.storage().reference().child("feedPhotos/\(imageName).jpg")
         
-        storageRef.putFile(from: imageLocalURL!, metadata: nil) { (metadata, error) in
-            guard let metadata = metadata else {
-                return
-            }
-            print(metadata)
+        if let uploadData = imagePicker.currentImage?.compressImage() {
             
-            storageRef.downloadURL { (url, error) in
-                guard let downloadURL = url else {
+            storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
+                guard let metadata = metadata else {
                     return
                 }
-                let values = ["title": self.newFeedTitle.text!, "details": self.newFeedDetails.text!, "image": downloadURL.absoluteString] as [String : Any]
+                print(metadata)
                 
-                self.uploadToCloud(values: values)
-                
-            }
+                storageRef.downloadURL { (url, error) in
+                    guard let downloadURL = url else {
+                        return
+                    }
+                    let values = ["title": self.newFeedTitle.text!, "details": self.newFeedDetails.text!, "image": downloadURL.absoluteString] as [String : Any]
+                    
+                    self.uploadToCloud(values: values)
+                }
+            })
         }
-     
+    
         performSegue(withIdentifier: "feedCreationToMainMenu", sender: self)
     }
     
@@ -58,19 +60,20 @@ class feedCreationViewController: UIViewController, UIImagePickerControllerDeleg
         var selectedImageFromImagePicker: UIImage?
         
         if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
-            selectedImageFromImagePicker = editedImage.compressImage()
+            selectedImageFromImagePicker = editedImage
+
         } else if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
-            selectedImageFromImagePicker = originalImage.compressImage()
+            selectedImageFromImagePicker = originalImage
+
         }
         
         if let selectedImage = selectedImageFromImagePicker {
             imagePicker.setImage(selectedImage, for: .normal)
         }
         
-        imageLocalURL = info[UIImagePickerControllerImageURL] as? URL
-       
         dismiss(animated: true, completion: nil)
     }
+    
     
     func uploadToCloud(values: [String:Any]){
         
@@ -98,6 +101,7 @@ class feedCreationViewController: UIViewController, UIImagePickerControllerDeleg
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
+    
 
     }
     
@@ -105,28 +109,11 @@ class feedCreationViewController: UIViewController, UIImagePickerControllerDeleg
         view.endEditing(true)
     }
     
-    
-    
-    /*func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        scrollView.setContentOffset(CGPoint(x:0,y:215), animated: true)
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        scrollView.setContentOffset(CGPoint(x:0,y:0), animated: true)
-    } */
-    
-    //let userUID = Auth.auth().currentUser?.uid
-    //print("user id is \(userUID!)")
-
 }
 
 extension UIImage {
     
-    func compressImage() -> UIImage? {
+    func compressImage() -> Data? {
         // Reducing file size to a 10th
         var actualHeight: CGFloat = self.size.height
         var actualWidth: CGFloat = self.size.width
@@ -134,7 +121,7 @@ extension UIImage {
         let maxWidth: CGFloat = 640.0
         var imgRatio: CGFloat = actualWidth/actualHeight
         let maxRatio: CGFloat = maxWidth/maxHeight
-        var compressionQuality: CGFloat = 0.5
+        var compressionQuality: CGFloat = 0.1
         
         if actualHeight > maxHeight || actualWidth > maxWidth {
             if imgRatio < maxRatio {
@@ -156,14 +143,28 @@ extension UIImage {
         let rect = CGRect(x: 0.0, y: 0.0, width: actualWidth, height: actualHeight)
         UIGraphicsBeginImageContext(rect.size)
         self.draw(in: rect)
-        guard let img = UIGraphicsGetImageFromCurrentImageContext() else {
-            return nil
-        }
+        let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        guard let imageData = UIImageJPEGRepresentation(img, compressionQuality) else {
-            return nil
-        }
-        return UIImage(data: imageData)
+        let imageData = UIImageJPEGRepresentation(img!, compressionQuality)
+        return imageData
     }
-    
 }
+
+
+
+/*func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+ textField.resignFirstResponder()
+ return true
+ }
+ func textFieldDidBeginEditing(_ textField: UITextField) {
+ scrollView.setContentOffset(CGPoint(x:0,y:215), animated: true)
+ }
+ 
+ func textFieldDidEndEditing(_ textField: UITextField) {
+ scrollView.setContentOffset(CGPoint(x:0,y:0), animated: true)
+ }
+
+//let userUID = Auth.auth().currentUser?.uid
+//print("user id is \(userUID!)")
+*/
+ 
