@@ -14,7 +14,7 @@ class feedCellDetailsViewController: UIViewController {
         super.viewDidLoad()
         
         imageView.image = image
-        navItem.title = feedTitleDetails
+        navigationItem.title = feedTitleDetails
         feedDetails.text = feedDetail
 
     }
@@ -26,7 +26,6 @@ class feedCellDetailsViewController: UIViewController {
     
     @IBOutlet weak var feedDetails: UILabel!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var navItem: UINavigationItem!
     
 
 }

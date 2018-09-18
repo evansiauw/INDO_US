@@ -43,6 +43,8 @@ class FeedViewController: UITableViewController{
                 let feed = Feed()
                 feed.setValuesForKeys(dictionary)
                 self.feeds.append(feed)
+                
+                //NEED TO BE OPTIMIZED USING NSCACHE
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -94,6 +96,7 @@ class FeedViewController: UITableViewController{
         return 1
     }
     
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return feeds.count
     }
@@ -105,7 +108,7 @@ class FeedViewController: UITableViewController{
         let imageRef = value.image
         let httpRef = Storage.storage().reference(forURL: imageRef!)
         
-        httpRef.getData(maxSize: 5 * 1024 * 1024, completion: { data, error in
+        httpRef.getData(maxSize: 1 * 1024 * 1024, completion: { data, error in
             if let error = error {
                 print(error)
             } else {

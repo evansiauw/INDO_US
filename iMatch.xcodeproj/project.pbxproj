@@ -14,6 +14,10 @@
 		0151FB2A213F226E0037CB3A /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0151FB29213F226E0037CB3A /* profileViewController.swift */; };
 		0151FB302140C9DC0037CB3A /* feedCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0151FB2F2140C9DC0037CB3A /* feedCreationViewController.swift */; };
 		0151FB352142195E0037CB3A /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0151FB342142195E0037CB3A /* Feed.swift */; };
+		0152C06D214D49BF00A1189D /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0152C06C214D49BF00A1189D /* Message.swift */; };
+		0152C06F214D519F00A1189D /* forumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0152C06E214D519F00A1189D /* forumViewController.swift */; };
+		0152C071214D562200A1189D /* Forum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0152C070214D562200A1189D /* Forum.swift */; };
+		0152C075214D596700A1189D /* ForumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0152C074214D596700A1189D /* ForumTableViewCell.swift */; };
 		01645F1D211E43880076E466 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01645F1C211E43880076E466 /* AppDelegate.swift */; };
 		01645F1F211E43880076E466 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01645F1E211E43880076E466 /* ViewController.swift */; };
 		01645F22211E43880076E466 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01645F20211E43880076E466 /* Main.storyboard */; };
@@ -23,6 +27,7 @@
 		01645F3D211E438A0076E466 /* iMatchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01645F3C211E438A0076E466 /* iMatchUITests.swift */; };
 		01CC0595212A3DE7006C508F /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CC0594212A3DE7006C508F /* FeedTableViewCell.swift */; };
 		01CC05A6212B9146006C508F /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CC05A5212B9146006C508F /* FeedViewController.swift */; };
+		01FDA15421507DE000E64F4D /* message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FDA15321507DE000E64F4D /* message.swift */; };
 		2634F718C99E01511D104A2C /* Pods_iMatchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D448F3379B1474793032C0 /* Pods_iMatchTests.framework */; };
 		32A1E4C2C1344B5F21BD72CC /* Pods_iMatchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07CBD08D1FF50F7E5D406A44 /* Pods_iMatchUITests.framework */; };
 		6D9BBEEB9F631963076E2014 /* Pods_iMatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97A994283900B7B33839000 /* Pods_iMatch.framework */; };
@@ -54,6 +59,10 @@
 		0151FB29213F226E0037CB3A /* profileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
 		0151FB2F2140C9DC0037CB3A /* feedCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = feedCreationViewController.swift; sourceTree = "<group>"; };
 		0151FB342142195E0037CB3A /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		0152C06C214D49BF00A1189D /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		0152C06E214D519F00A1189D /* forumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forumViewController.swift; sourceTree = "<group>"; };
+		0152C070214D562200A1189D /* Forum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forum.swift; sourceTree = "<group>"; };
+		0152C074214D596700A1189D /* ForumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumTableViewCell.swift; sourceTree = "<group>"; };
 		01645F19211E43880076E466 /* Indo-US.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Indo-US.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		01645F1C211E43880076E466 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01645F1E211E43880076E466 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +78,7 @@
 		01645F3E211E438A0076E466 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01CC0594212A3DE7006C508F /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		01CC05A5212B9146006C508F /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		01FDA15321507DE000E64F4D /* message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = message.swift; sourceTree = "<group>"; };
 		05D96D6B2CDD967F4DA0B15A /* Pods-iMatchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMatchTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iMatchTests/Pods-iMatchTests.debug.xcconfig"; sourceTree = "<group>"; };
 		07CBD08D1FF50F7E5D406A44 /* Pods_iMatchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iMatchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FE1B19A7F5530DF859662A /* Pods-iMatchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMatchUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iMatchUITests/Pods-iMatchUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -110,7 +120,9 @@
 		0151FB312141FEEF0037CB3A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0152C070214D562200A1189D /* Forum.swift */,
 				0151FB342142195E0037CB3A /* Feed.swift */,
+				0152C06C214D49BF00A1189D /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -141,13 +153,16 @@
 		01645F1B211E43880076E466 /* iMatch */ = {
 			isa = PBXGroup;
 			children = (
+				0152C074214D596700A1189D /* ForumTableViewCell.swift */,
 				0151FB2F2140C9DC0037CB3A /* feedCreationViewController.swift */,
 				01CC05A5212B9146006C508F /* FeedViewController.swift */,
 				0151FB17212F7FD90037CB3A /* feedCellDetailsViewController.swift */,
 				01645F1C211E43880076E466 /* AppDelegate.swift */,
 				01645F1E211E43880076E466 /* ViewController.swift */,
 				01645F20211E43880076E466 /* Main.storyboard */,
+				0152C06E214D519F00A1189D /* forumViewController.swift */,
 				0151FB27213C187B0037CB3A /* liveChatViewController.swift */,
+				01FDA15321507DE000E64F4D /* message.swift */,
 				0151FB29213F226E0037CB3A /* profileViewController.swift */,
 				0151FB25213895A90037CB3A /* signUpViewController.swift */,
 				01CC0594212A3DE7006C508F /* FeedTableViewCell.swift */,
@@ -421,16 +436,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0152C06F214D519F00A1189D /* forumViewController.swift in Sources */,
 				01645F1F211E43880076E466 /* ViewController.swift in Sources */,
 				0151FB352142195E0037CB3A /* Feed.swift in Sources */,
 				0151FB302140C9DC0037CB3A /* feedCreationViewController.swift in Sources */,
 				0151FB18212F7FD90037CB3A /* feedCellDetailsViewController.swift in Sources */,
 				0151FB26213895A90037CB3A /* signUpViewController.swift in Sources */,
 				01CC0595212A3DE7006C508F /* FeedTableViewCell.swift in Sources */,
+				0152C06D214D49BF00A1189D /* Message.swift in Sources */,
+				0152C071214D562200A1189D /* Forum.swift in Sources */,
+				0152C075214D596700A1189D /* ForumTableViewCell.swift in Sources */,
 				0151FB28213C187B0037CB3A /* liveChatViewController.swift in Sources */,
 				01CC05A6212B9146006C508F /* FeedViewController.swift in Sources */,
 				0151FB2A213F226E0037CB3A /* profileViewController.swift in Sources */,
 				01645F1D211E43880076E466 /* AppDelegate.swift in Sources */,
+				01FDA15421507DE000E64F4D /* message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

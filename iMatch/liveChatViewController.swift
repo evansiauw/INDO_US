@@ -8,20 +8,36 @@
 
 import UIKit
 import MessageUI
+import FirebaseAuth
+import FirebaseStorage
+import FirebaseDatabase
 
-class liveChatViewController: UIViewController{
-
-    @IBOutlet weak var chatBar: UIBarButtonItem!
+class liveChatViewController: UITableViewController{
     
-    @IBAction func addButton(_ sender: UIBarButtonItem) {
+    var messages = [Message]()
+
+    func fetchFeed() {
         
+        Database.database().reference().child("Messages").observe(.childAdded, with: { (snapshot) in
+            
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                
+                let msg = Message()
+                msg.setValuesForKeys(dictionary)
+                self.messages.append(msg)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+                
+            }
+            
+        }, withCancel: nil)
     }
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        //fetchFeed()
 
     }
 

@@ -42,8 +42,9 @@ class feedCreationViewController: UIViewController, UIImagePickerControllerDeleg
                 }
             })
         }
+        
+        navigationController?.popViewController(animated: true)
     
-        performSegue(withIdentifier: "feedCreationToMainMenu", sender: self)
     }
     
     @IBAction func chooseImage(_ sender: UIButton) {

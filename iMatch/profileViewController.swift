@@ -18,8 +18,10 @@ class profileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getProfileInfo()
+        imageProfile.roundedCorner()
     
     }
+   
     
     // Change the status bar to white instead of black color
     override var preferredStatusBarStyle : UIStatusBarStyle {
@@ -31,7 +33,6 @@ class profileViewController: UIViewController {
         Database.database().reference().child("Users").child(uid!).observeSingleEvent(of:DataEventType.value, with: {
             (snapshot) in
             let postDict = snapshot.value as? [String : AnyObject] ?? [:]
-            print(postDict)
             self.name.text = postDict["name"] as? String
         }, withCancel: nil)
     }
@@ -51,4 +52,18 @@ class profileViewController: UIViewController {
     
 
 
+}
+
+extension UIImageView {
+    
+    func roundedCorner(){
+        layer.borderWidth = 2
+        layer.masksToBounds = false
+        layer.borderColor = UIColor.white.cgColor
+        layer.cornerRadius = frame.height/2
+        clipsToBounds = true
+    }
+    
+    
+    
 }
